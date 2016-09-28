@@ -36,3 +36,23 @@ input[type="submit"]{
 input[type="submit"]:hover{
 	background:#85DBE5;
 }
+
+input[type="submit"]:hover{
+	background:#00b8eb;
+}
+
+.header{
+	border-bottom:1px solid #eee;
+	padding:10px 0px;
+	width:100%;
+	text-align:center;
+}
+
+.header a{
+	color:#413C3C;
+	text-decoration: none;
+}
+.header a:hover{
+	color:#85DBE5;
+	text-decoration: none;
+}

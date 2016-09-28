@@ -9,6 +9,9 @@
 </head>
 
 <body>
+<div class="header">
+<a href="index.php"> Your App Name</a>
+</div>
 <h1> Please Login or Register</h1>
 <a href= "login.php">Login</a> or 
 <a href= "register.php">Register</a>

@@ -8,6 +8,9 @@
 </head>
 
 <body>
+<div class="header">
+<a href="index.php"> Your App Name</a>
+</div>
 
 <h1>Login </h1>
 <form action ="login.php" method="POST">
