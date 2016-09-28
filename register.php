@@ -1,3 +1,23 @@
+
+<?php 
+$server= 'localhost';
+$username = 'root';
+$password = 'root';
+$database = 'auth';
+
+	
+try{
+	$conn = new PDO("mysql:host=$server;dbname=$database;", $username, $password);
+}
+catch(PDOException $e) {
+	die("Connection failed : " . $e->getMessage());
+
+}
+if(!empty($_POST['email']) && !empty($_POST['password'])):
+
+// Enter the new user in the dayabase 
+endif;
+?>
 <!doctype html>
 <html>
 <head>
@@ -13,6 +33,17 @@
 </div>
 <h1> Register</h1>
 <span>or <a href="login.php">Login here</a></span>
+
+<form action ="register.php" method="POST">
+
+<input type="text" placeholder="Enter your email" name="email">
+
+<input type="password" placeholder="and password" name="password">
+
+<input type="password" placeholder="confirm password" name="confirm_password">
+
+<input type="submit">
+</form>
 
 </body>
 </html>

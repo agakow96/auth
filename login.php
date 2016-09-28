@@ -1,8 +1,7 @@
 <?php 
-if(!empty($_POST['email'])):
+if(!empty($_POST['email']) && !empty($_POST['password'])):
 
-echo $_POST['email'] ;
-die();
+
 endif;
 ?>
 
