@@ -1,3 +1,14 @@
+<?php 
+if(!empty($_POST['email'])):
+
+echo $_POST['email'] ;
+die();
+endif;
+?>
+
+
+
+
 <!doctype html>
 <html>
 <head>
