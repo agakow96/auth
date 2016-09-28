@@ -1,5 +1,11 @@
 
 <?php 
+session_start();
+
+if( isset($_SESSION['user_id']) ){
+	header("Location: /");
+}
+
 require 'database.php';
 
 ini_set('display_errors', 1);

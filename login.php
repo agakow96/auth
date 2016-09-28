@@ -1,4 +1,12 @@
 <?php 
+
+
+session_start();
+
+if( isset($_SESSION['user_id']) ){
+	header("Location: index.php");
+}
+
 require 'database.php';
 
 if(!empty($_POST['email']) && !empty($_POST['password'])):
@@ -11,12 +19,15 @@ $records = $conn->prepare('SELECT id,email,password FROM users WHERE email = :em
 	$message = '';
 	
 	if(count($results) > 0 && password_verify($_POST['password'], $results['password']) ){
+     
+	 
+	 $_SESSION['user_id'] = $results['id'];
+	header("Location: index.php");
 
-		die('we have a login');
 	}	
 	 else {
 		 
-		die('there has been an error');
+		$message = 'Sorry, there has been an error, try again..';
 	 }
 
 
@@ -39,6 +50,9 @@ endif;
 <div class="header">
 <a href="index.php"> Your App Name</a>
 </div>
+<?php if(!empty($message)): ?>
+		<p><?= $message ?></p>
+	<?php endif; ?>
 
 <h1>Login </h1>
 <span>or <a href="register.php">register here</a></span>
