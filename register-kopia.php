@@ -2,30 +2,22 @@
 <?php 
 require 'database.php';
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 $message = '';
 
 if(!empty($_POST['email']) && !empty($_POST['password'])):
 	
-	$email = $_POST['email'];
-	$password = $_POST['password'];
-	$hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-	
-	
-	$stmt = $conn->prepare("INSERT INTO users (email, password) VALUES (:email, :password)");
-    $stmt->bindParam(':email', $email);
-    $stmt->bindParam(':password', $hashedPassword);
-	
-	if ($stmt->execute()) {
-		echo 'Successfully created new user';	
-	}
-	else {
-		echo 'Sorry there must have been an issue creating your account';
-	}
-	
+	// Enter the new user in the database
+	$sql = "INSERT INTO users (email, password) VALUES (:email, :password)";
+	$stmt = $conn->prepare($sql);
+	$stmt->bindParam(':email', $_POST['email']);
+	$stmt->bindParam(':password', password_hash($_POST['password'], PASSWORD_BCRYPT));
+
+	if( $stmt->execute() ):
+		$message = 'Successfully created new user';
+	else:
+		$message = 'Sorry there must have been an issue creating your account';
+	endif;
+
 //Executing the if statement so the if statement gives us a message if the password has been corect and if the user has been succesfully added, if yes, it's going to be a "success, but if not, it's going to inform, that this failed
 endif;
 ?>
@@ -43,7 +35,8 @@ endif;
 <a href="index.php"> Your App Name</a>
 </div>
 
-<?php if(!empty($message)): ?>
+
+	<?php if(!empty($message)): ?>
 		<p><?= $message ?></p>
 	<?php endif; ?>
     
