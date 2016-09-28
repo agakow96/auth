@@ -9,7 +9,7 @@ error_reporting(E_ALL);
 $message = '';
 
 if(!empty($_POST['email']) && !empty($_POST['password'])):
-	
+
 	$email = $_POST['email'];
 	$password = $_POST['password'];
 	$hashedPassword = password_hash($password, PASSWORD_BCRYPT);
