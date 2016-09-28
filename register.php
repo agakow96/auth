@@ -12,5 +12,7 @@
 <a href="index.php"> Your App Name</a>
 </div>
 <h1> Register</h1>
+<span>or <a href="login.php">Login here</a></span>
+
 </body>
 </html>
