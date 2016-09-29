@@ -13,13 +13,13 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 $message = '';
-
+// Enter the new user in the database
 if(!empty($_POST['email']) && !empty($_POST['password'])):
 
 	$email = $_POST['email'];
 	$password = $_POST['password'];
 	$hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-	
+	/*The password has to be hashed, so noone who can get to our database can see it. It's safer that way. There are many different ways of hasing the password, I'm using "PASSWORD_BCRYPT"*/
 	
 	$stmt = $conn->prepare("INSERT INTO users (email, password) VALUES (:email, :password)");
     $stmt->bindParam(':email', $email);
@@ -32,7 +32,7 @@ if(!empty($_POST['email']) && !empty($_POST['password'])):
 		echo 'Sorry there must have been an issue creating your account';
 	}
 	
-//Executing the if statement so the if statement gives us a message if the password has been corect and if the user has been succesfully added, if yes, it's going to be a "success, but if not, it's going to inform, that this failed
+//Executing the if statement so the if statement gives us a message if the password has been corect and if the user has been succesfully added, if yes, the user will be logged in, but if not, it's going to inform, that this failed
 endif;
 ?>
 <!doctype html>
@@ -63,6 +63,7 @@ endif;
 <input type="password" placeholder="and password" name="password">
 
 <input type="password" placeholder="confirm password" name="confirm_password">
+<!--The user has to fill in all of the places, as well as confirm the password in order to be added to database-->
 
 <input type="submit">
 </form>

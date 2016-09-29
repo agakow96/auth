@@ -24,9 +24,10 @@ $records = $conn->prepare('SELECT id,email,password FROM users WHERE email = :em
 	 $_SESSION['user_id'] = $results['id'];
 	header("Location: index.php");
 
-	}	
+	}
+	/*If the data has been inserted corectly the user will be sent to index page, and will get the message, that he has been succesfully logged in*/	
 	 else {
-		 
+		/*else, so if not, if the password or email is incorect and it can't be found in the database the user will reciver message "Sorry, there has been an error, try again.."*/ 
 		$message = 'Sorry, there has been an error, try again..';
 	 }
 
@@ -52,10 +53,13 @@ endif;
 </div>
 <?php if(!empty($message)): ?>
 		<p><?= $message ?></p>
+        
 	<?php endif; ?>
+    <!--The message will be shown if the files were filed with data-->
 
 <h1>Login </h1>
 <span>or <a href="register.php">register here</a></span>
+<!--I added that link so the page is easier to navigate for the user, if he is not registered yet, he can go straigth to register subpage, he doesn't have to look fo it-->
 
 <form action ="login.php" method="POST">
 

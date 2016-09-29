@@ -1,9 +1,11 @@
 @charset "UTF-8";
 body {
-	margin: 0px;
+	background:#D0CDCD;
+	margin: 0 px;
 	padding: 0 px;
 	font-family: 'Open Sans Condensed', sans-serif;
 	text-align: center;
+	font-size:18px;
 }
 input[type="text"], input[type="password"]
 
@@ -26,15 +28,11 @@ input[type="submit"]{
 	margin:20px auto;
 	margin-top: 0px;
 	border:0px;
-	border-radius:3px;
+	border-radius:5px;
 	cursor:pointer;
 	
 	
 	
-}
-
-input[type="submit"]:hover{
-	background:#85DBE5;
 }
 
 input[type="submit"]:hover{
@@ -46,6 +44,7 @@ input[type="submit"]:hover{
 	padding:10px 0px;
 	width:100%;
 	text-align:center;
+	font-size: 21px;
 }
 
 .header a{
@@ -53,6 +52,6 @@ input[type="submit"]:hover{
 	text-decoration: none;
 }
 .header a:hover{
-	color:#85DBE5;
+	color:#00b8eb;
 	text-decoration: none;
 }
