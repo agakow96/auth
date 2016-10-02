@@ -39,12 +39,16 @@ if( isset($_SESSION['user_id']) ){
 <div class="header">
 <a href="index.php"> Friends of animals</a>
 </div>
+
+
 <?php if( !empty($user) ): ?>
 
 		<br />Welcome <?= $user['email']; ?> 
 		<br /><br />You are successfully logged in!
+         <a href="secretpage.php">Visit the secret page.</a>
 		<br /><br />
 		<a href="logout.php">Logout?</a>
+       
 
 	<?php else: 
 	/*If the user is not logged in he will be redirected to subpage login or register automaticly*/
